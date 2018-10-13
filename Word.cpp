@@ -10,16 +10,15 @@ using namespace std;
 
 Word::Word(string word) {
     transform(word.begin(), word.end(), word.begin(), ::tolower);
-    cout << word << endl;
     this->plainTextWord = word;
 };
 
-string Word::getHiddenWord() {
-    return hiddenWord;
+bool Word::getWin() {
+    return win;
 }
 
-string Word::getPlainTextWord() {
-    return plainTextWord;
+int Word::getGuessesRemaining() {
+    return getGuessesRemaining();
 }
 
 void Word::setHiddenWord() {
@@ -42,6 +41,23 @@ string Word::checkHiddenWord(char charToCheck) {
             hiddenWord[i] = toLowerCase;
         }
     }
-    cout << hiddenWord << endl;
+    if (plainTextWord.find(charToCheck) == string::npos) {
+        cout << "Letter not found" << hiddenWord << endl;
+        guessesRemaining --;
+    }
+    cout << "Hidden Word: " << hiddenWord << endl;
+    cout << "Guesses remaining " << guessesRemaining << endl;
     return hiddenWord;
+}
+
+void Word::checkForWin() {
+    char n = hiddenWord.find('*');
+    if (n == string::npos) {
+        win = true;
+        cout << "You win" << endl;
+        exit(0);
+    } else if(guessesRemaining <= 0){
+        cout << "You lose" << endl;
+        exit(0);
+    }
 }

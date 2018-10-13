@@ -13,12 +13,15 @@ class Word {
 private:
     string plainTextWord;
     string hiddenWord;
+    int guessesRemaining = 10;
+    bool win = false;
 public:
     Word(string word);
-    string getPlainTextWord();
+    bool getWin();
+    int getGuessesRemaining();
     void setHiddenWord();
-    string getHiddenWord();
     string checkHiddenWord(char charToCheck);
+    void checkForWin();
 };
 
 
