@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/alexconstantinou/CLionProjects/GuessTheWord/Word.h
+iostream
+-
+
+/Users/alexconstantinou/CLionProjects/GuessTheWord/main.cpp
+iostream
+-
+Word.h
+/Users/alexconstantinou/CLionProjects/GuessTheWord/Word.h
+
